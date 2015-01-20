@@ -1765,15 +1765,16 @@
 	//Animation frame id returned by RequestAnimationFrame (or timeout when RAF is not supported).
 	var _animFrame;
 
-	//Expose skrollr as either a global variable or a require.js module.
+	// Expose skrollr as a global variable
+	window.skrollr = skrollr;
+
+	// And as require.js module.
 	if(typeof define === 'function' && define.amd) {
 		define([], function () {
 			return skrollr;
 		});
 	} else if (typeof module !== 'undefined' && module.exports) {
 		module.exports = skrollr;
-	} else {
-		window.skrollr = skrollr;
 	}
 
 }(window, document));
